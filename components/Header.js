@@ -29,10 +29,7 @@ const styles = StyleSheet.create({
   header: {
     textAlign: "center",
     bottom: 40,
-    // left: -80,
-    // marginBottom: 40,
     marginTop: 0,
-    // position: "absolute",
     fontWeight: "bold",
     fontSize: 30,
     color: "#FFA500",

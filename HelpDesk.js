@@ -75,12 +75,6 @@ const HelpDesk = () => {
           size={40}
           onPress={() => Linking.openURL("https://twitter.com/rcb1929")}
         />
-        {/* <Instagram
-          name="instagram"
-          style={{color:''}}
-          size={35}
-          onPress={() => Linking.openURL("https://www.instagram.com/rcb1929/")}
-        /> */}
         <TouchableOpacity
           onPress={() => Linking.openURL("https://www.instagram.com/rcb1929/")}
         >

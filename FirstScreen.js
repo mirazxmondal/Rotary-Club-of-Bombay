@@ -7,23 +7,14 @@ import {
   ScrollView,
 } from "react-native";
 import { useCallback, useEffect, useState } from "react";
-// import { TouchableOpacity } from "react-native-gesture-handler";
 import Icon from "react-native-vector-icons/AntDesign";
 import { useNavigation } from "@react-navigation/native";
 import * as Font from "expo-font";
-// fonts
-// import { useFonts } from "expo-font";
-// import * as SplashScreen from "expo-splash-screen";
-// import { loadFonts } from "./components/Fonts";
 import { Video } from "expo-av";
 import { auth, db } from "./firebase/firebase";
 
-// SplashScreen.preventAutoHideAsync();
 
 const FirstScreen = () => {
-  // let [fontsLoaded] = useFonts({
-  //   "Montserrat-MediumItalic": require("../../assets/fonts/Montserrat-MediumItalic.ttf"),
-  // });
   const [fontLoaded, setFontLoaded] = useState(false);
   const navigation = useNavigation();
   const loadFonts = async () => {
@@ -138,12 +129,4 @@ const styles = StyleSheet.create({
     borderColor: "#FFA500",
     borderWidth: 2,
   },
-  //   {
-  //     backgroundColor: "blue",
-  //     width: 100,
-  //     height: 100,
-  //     alignItems: "center",
-  //     justifyContent: "center",
-  //     borderRadius: 100,
-  //   }
 });

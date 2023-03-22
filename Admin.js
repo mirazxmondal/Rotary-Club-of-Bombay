@@ -21,6 +21,7 @@ import PushNotification from "./PushNotification";
 export default function AdminGenerate() {
   const navigation = useNavigation();
   const [formData, setFormData] = useState({});
+  
   // useEffect(() => {
   //   const getData = async () => {
   //    const docRef = collection(db, 'users');
