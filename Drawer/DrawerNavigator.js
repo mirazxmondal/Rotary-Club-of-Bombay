@@ -19,6 +19,7 @@ import TransactionHistory from "../Transaction";
 import Icon3 from "react-native-vector-icons/MaterialIcons";
 import { auth } from "../firebase/firebase";
 import { useNavigation } from "@react-navigation/native";
+import FirstScreen from "../FirstScreen";
 
 const Drawer = createDrawerNavigator();
 
@@ -42,7 +43,7 @@ export default function DrawerNavigator() {
   return (
     <Drawer.Navigator>
       {/* <Drawer.Screen name="Home" component={Home} /> */}
-      {/* <Drawer.Screen
+      <Drawer.Screen
         name={`Home `}
         options={{
           headerStyle: {
@@ -50,10 +51,13 @@ export default function DrawerNavigator() {
           },
           headerTintColor: "#fff",
           headerTitleAlign: "center",
+          headerRight: ({ onPress }) => (
+            <CustomHeaderIcon onPress={handleSignOut} />
+          ),
           //   title: "Rotary Club Bombay",
         }}
-        component={Home}
-      /> */}
+        component={FirstScreen}
+      />
       <Drawer.Screen
         name={`Transaction `}
         options={{
@@ -77,6 +81,9 @@ export default function DrawerNavigator() {
           },
           headerTintColor: "#fff",
           headerTitleAlign: "center",
+          headerRight: ({ onPress }) => (
+            <CustomHeaderIcon onPress={handleSignOut} />
+          ),
           //   title: "Rotary Club Bombay",
         }}
         component={PayMembership}
@@ -89,6 +96,9 @@ export default function DrawerNavigator() {
           },
           headerTintColor: "#fff",
           headerTitleAlign: "center",
+          headerRight: ({ onPress }) => (
+            <CustomHeaderIcon onPress={handleSignOut} />
+          ),
           //   title: "Rotary Club Bombay",
         }}
         component={Donate}
@@ -101,6 +111,9 @@ export default function DrawerNavigator() {
           },
           headerTintColor: "#fff",
           headerTitleAlign: "center",
+          headerRight: ({ onPress }) => (
+            <CustomHeaderIcon onPress={handleSignOut} />
+          ),
           //   title: "Rotary Club Bombay",
         }}
         component={Events}
@@ -114,6 +127,9 @@ export default function DrawerNavigator() {
           },
           headerTintColor: "#fff",
           headerTitleAlign: "center",
+          headerRight: ({ onPress }) => (
+            <CustomHeaderIcon onPress={handleSignOut} />
+          ),
           //   title: "Rotary Club Bombay",
         }}
         component={HelpDesk}
@@ -126,6 +142,9 @@ export default function DrawerNavigator() {
           },
           headerTintColor: "#fff",
           headerTitleAlign: "center",
+          headerRight: ({ onPress }) => (
+            <CustomHeaderIcon onPress={handleSignOut} />
+          ),
           //   title: "Rotary Club Bombay",
         }}
         component={About}

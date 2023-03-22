@@ -17,20 +17,7 @@ const Donate = () => {
   const navigation = useNavigation();
   const [selected, setSelected] = useState("");
   const [showPayment, setShowPayment] = useState(false);
-  const data = [
-    { key: "1", value: "Bhavishya Yaan" },
-    { key: "2", value: "Lighthouse" },
-    { key: "3", value: "Scholarships" },
-    { key: "4", value: "Vocational Training" },
-    { key: "5", value: "The Anusuya Devi Taparia Junior College" },
-    { key: "6", value: "Child Welfare Committee" },
-    { key: "7", value: "Echo Program" },
-    { key: "8", value: "Covid 19" },
-    { key: "9", value: "Phiroze Ratanshah Vakil Eye Centre" },
-    { key: "10", value: "Ajit Deshpande Medical Centre" },
-    { key: "11", value: "Ananda Yaan" },
-    { key: "12", value: "Animal Welfare" },
-  ];
+  const [amount, setAmount] = useState(null);
   const [state, setState] = useState("cards");
   const [state1, setState1] = useState("cards");
   const [state2, setState2] = useState("cards");
@@ -46,6 +33,17 @@ const Donate = () => {
   const [state12, setState12] = useState("cards");
   const [state13, setState13] = useState("cards");
   const [state14, setState14] = useState("cards");
+
+  const handlePayment = () => {
+    if (amount != null) {
+      setTimeout(() => {
+        navigation.replace("ThankYouPage");
+      }, 2000);
+    } else {
+      alert("enter a valid amount");
+    }
+  };
+
   return (
     <KeyboardAwareScrollView
       style={{ backgroundColor: "white", height: "100%" }}
@@ -737,14 +735,12 @@ const Donate = () => {
             borderRadius: 15,
           }}
           keyboardType="numeric"
+          onChangeText={(amount) => setAmount(amount)}
           placeholder="Enter a Amount"
         ></TextInput>
       </View>
       <View style={{ alignItems: "center", justifyContent: "center" }}>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => navigation.replace("ThankYouPage")}
-        >
+        <TouchableOpacity style={styles.button} onPress={handlePayment}>
           <Text style={styles.buttonText}>Paid</Text>
         </TouchableOpacity>
       </View>

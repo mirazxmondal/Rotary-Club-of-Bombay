@@ -84,7 +84,7 @@ const TransactionHistory = ({ route }) => {
 
   return (
     <View style={styles.container}>
-      <Text
+      {/* <Text
         style={{
           fontWeight: "bold",
           marginBottom: 5,
@@ -95,7 +95,7 @@ const TransactionHistory = ({ route }) => {
         }}
       >
         {` Welcome ${auth.currentUser.displayName}`}
-      </Text>
+      </Text> */}
 
       <>
         {/* <Icon3

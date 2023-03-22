@@ -14,6 +14,16 @@ import { useNavigation } from "@react-navigation/native";
 const PayMembership = () => {
   const navigation = useNavigation();
   const [amount, setAmount] = useState(null);
+
+  const handlePayment = () => {
+    if (amount != null) {
+      setTimeout(() => {
+        navigation.replace("ThankYouPage");
+      }, 2000);
+    } else {
+      alert("enter a valid amount");
+    }
+  };
   return (
     <KeyboardAwareScrollView
       style={{ backgroundColor: "white", height: "100%" }}
@@ -68,10 +78,7 @@ const PayMembership = () => {
         ></TextInput>
       </View>
       <View style={{ alignItems: "center", justifyContent: "center" }}>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => navigation.replace("ThankYouPage")}
-        >
+        <TouchableOpacity style={styles.button} onPress={handlePayment}>
           <Text style={styles.buttonText}>Paid</Text>
         </TouchableOpacity>
       </View>

@@ -1,4 +1,11 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
 import { useCallback, useEffect, useState } from "react";
 // import { TouchableOpacity } from "react-native-gesture-handler";
 import Icon from "react-native-vector-icons/AntDesign";
@@ -9,6 +16,7 @@ import * as Font from "expo-font";
 // import * as SplashScreen from "expo-splash-screen";
 // import { loadFonts } from "./components/Fonts";
 import { Video } from "expo-av";
+import { auth, db } from "./firebase/firebase";
 
 // SplashScreen.preventAutoHideAsync();
 
@@ -30,17 +38,28 @@ const FirstScreen = () => {
   }
 
   return (
-    <View
+    <ScrollView
       style={{
         flex: 1,
         backgroundColor: "white",
-        // paddingTop: 35,
+        paddingBottom: 100,
         backgroundColor: "#02529c",
       }}
     >
-      <View
-        style={{ alignItems: "center", paddingTop: 100, paddingBottom: 40 }}
+      <Text
+        style={{
+          fontWeight: "bold",
+          marginBottom: 5,
+          color: "white",
+          marginTop: 5,
+          textAlign: "center",
+          fontSize: 20,
+          fontFamily: "custom-font",
+        }}
       >
+        {` Welcome ${auth.currentUser.displayName}`}
+      </Text>
+      <View style={{ alignItems: "center", paddingTop: 10, paddingBottom: 40 }}>
         <Image
           style={{ borderRadius: 7, width: 350, height: 120 }}
           source={require("./assets/rotary-club-logo-1.jpeg")}
@@ -77,7 +96,7 @@ const FirstScreen = () => {
           shouldPlay={true}
         />
       </View>
-      <View
+      {/* <View
         style={{
           justifyContent: "center",
           alignItems: "center",
@@ -85,18 +104,18 @@ const FirstScreen = () => {
           bottom: 10,
           right: 40,
         }}
-      >
-        {/* <TouchableOpacity style={[styles.button, styles.buttonOutline]}> */}
-        {/* <Text style={{ color: "blue" }}>Button</Text> */}
-        <Icon
+      > */}
+      {/* <TouchableOpacity style={[styles.button, styles.buttonOutline]}> */}
+      {/* <Text style={{ color: "blue" }}>Button</Text> */}
+      {/* <Icon
           name="rightcircle"
           style={{ color: "#FFA500", marginBottom: 20 }}
           size={60}
           onPress={() => navigation.replace("getStarted")}
-        />
-        {/* </TouchableOpacity> */}
-      </View>
-    </View>
+        /> */}
+      {/* </TouchableOpacity> */}
+      {/* </View> */}
+    </ScrollView>
   );
 };
 

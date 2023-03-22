@@ -34,6 +34,15 @@ const Register = () => {
     console.log("Document written with ID: ", docRef.id);
   };
 
+  const signOut = () => {
+    auth
+      .signOut()
+      .then(() => {
+        navigator.replace("LoginScreen");
+      })
+      .catch((error) => alert(error.message));
+  };
+
   const navigator = useNavigation();
 
   const handleSignUp = () => {
@@ -42,11 +51,12 @@ const Register = () => {
         // Signed in
         alert("Registered Successfully");
         saveData();
-        navigator.replace("DrawerNavigator");
+        // navigator.replace("DrawerNavigator");
         // ...
         updateProfile(auth.currentUser, {
           displayName: name,
         });
+        signOut();
       })
       .catch((error) => {
         const errorCode = error.code;

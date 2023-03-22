@@ -12,7 +12,7 @@ const Events = () => {
         size={30}
         style={{ position: "absolute", top: 5, left: 10, zIndex: 1 }}
         color={"#FFA500"}
-        onPress={() => navigation.replace("Transaction")}
+        onPress={() => navigation.replace("DrawerNavigator")}
       />
 
       <Text
