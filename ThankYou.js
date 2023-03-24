@@ -14,9 +14,6 @@ const ThankYouPage = () => {
         backgroundColor: "#3ba0fc",
       }}
     >
-      {/* <Text style={{ fontSize: 22, fontWeight: "700", marginBottom: 50 }}>
-        Thank You for your donation
-      </Text> */}
 
       <Icon
         // color={"#0047AB"}
@@ -28,10 +25,6 @@ const ThankYouPage = () => {
           marginBottom: 20,
           backgroundColor: "white",
           borderRadius: 380,
-          //   shadowOffset: { width: -2, height: 4 },
-          //   shadowColor: "black",
-          //   shadowOpacity: 0.2,
-          //   shadowRadius: 3,
           borderColor: "#0047AB",
         }}
       />

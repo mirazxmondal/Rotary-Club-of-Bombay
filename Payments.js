@@ -92,12 +92,10 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: "#FFA500",
     width: "40%",
-    // height: "100",
     padding: 15,
     borderRadius: 20,
     alignItems: "center",
     justifyContent: "center",
-    // position: "absolute",
     bottom: 5,
     marginTop: 20,
   },
@@ -105,6 +103,5 @@ const styles = StyleSheet.create({
     color: "white",
     fontWeight: "700",
     fontSize: 16,
-    // fontFamily: "Montserrat-Medium",
   },
 });

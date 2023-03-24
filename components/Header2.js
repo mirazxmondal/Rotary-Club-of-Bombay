@@ -11,10 +11,6 @@ const Header2 = () => {
         name="leftcircle"
         style={{
           color: "#FFA500",
-          // marginBottom: 20,
-          // position: "absolute",
-          // top: 0,
-          // left: 5,
           zIndex: 10,
         }}
         onPress={() => navigation.replace("LoginScreen")}
@@ -35,10 +31,7 @@ const styles = StyleSheet.create({
   header: {
     textAlign: "center",
     bottom: 40,
-    // left: -80,
-    // marginBottom: 40,
     marginTop: 0,
-    // position: "absolute",
     fontWeight: "bold",
     fontSize: 30,
     color: "#FFA500",

@@ -19,14 +19,6 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        {/* <Stack.Screen
-          name="FirstScreen"
-          options={{
-            headerTitleAlign: "center",
-            headerShown: false,
-          }}
-          component={FirstScreen}
-        /> */}
         <Stack.Screen
           name="getStarted"
           options={{

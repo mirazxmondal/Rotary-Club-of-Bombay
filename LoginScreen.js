@@ -36,14 +36,6 @@ const LoginScreen = () => {
 
   const currentUser = auth.currentUser;
 
-  // useEffect(() => {
-  //   if (currentUser) {
-  //     updateProfile(auth.currentUser, {
-  //       displayName: username,
-  //     });
-  //   }
-  // }, [currentUser]);
-
   const handleSignIn = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
@@ -204,8 +196,6 @@ const styles = StyleSheet.create({
   buttonOutline1: {
     backgroundColor: "#F79AC0",
     marginTop: 5,
-    // borderColor: "#F79AC0",
-    // borderWidth: 2,
   },
   buttonOutlineText1: {
     color: "white",

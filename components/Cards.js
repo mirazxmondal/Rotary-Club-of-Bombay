@@ -51,11 +51,6 @@ const Cards = ({ value }) => {
       iconName: "info-circle",
     },
 
-    // {
-    //   index: "7",
-    //   name: "SIGN OUT",
-    //   listner: "handleSignOut",
-    // },
   ];
 
   const navigation = useNavigation();
@@ -118,7 +113,6 @@ const Cards = ({ value }) => {
         return (
           <TouchableOpacity
             onPress={() => onPress(item.index)}
-            // onPress={onPress(item.index)}
             style={[styles.card, styles.shadowProp]}
           >
             <Icon name={item.iconName} size={30} />
@@ -146,9 +140,7 @@ const styles = StyleSheet.create({
     marginLeft: 5,
     borderColor: "gray",
     border: 1,
-    // position: "absolute",
     bottom: 0,
-    // marginTop: 0,
   },
   cardText: {
     fontWeight: "500",

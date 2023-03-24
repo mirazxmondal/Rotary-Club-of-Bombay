@@ -50,9 +50,6 @@ export default function PushNotification() {
   return (
     <View
       style={{
-        // flex: 1,
-        // alignItems: "center",
-        // justifyContent: "space-around",
         margin: 10,
       }}
     >

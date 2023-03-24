@@ -8,9 +8,6 @@ import {
   Image,
   KeyboardAvoidingView,
 } from "react-native";
-// import Cards from "../components/Cards";
-// import Header from "../components/Header";
-// import About from "./About";
 import Icon from "react-native-vector-icons/FontAwesome";
 import Icon2 from "react-native-vector-icons/AntDesign";
 import Icon3 from "react-native-vector-icons/MaterialIcons";
@@ -23,7 +20,6 @@ import {
   where,
 } from "firebase/firestore";
 import { auth, db } from "./firebase/firebase";
-// import DonateMoney from "./DonateMoney";
 
 const TransactionHistory = ({ route }) => {
   const navigation = useNavigation();
@@ -49,21 +45,9 @@ const TransactionHistory = ({ route }) => {
         });
       });
       console.log(auth.currentUser);
-      // setListings(listings);
-      // setLoading(false);
     }
     fetchUserListings();
   }, []);
-
-  //   const handleSignOut = () => {
-  //     auth
-  //       .signOut()
-  //       .then(() => {
-  //         navigation.replace("Login");
-  //       })
-  //       .catch((error) => alert(error.message));
-  //   };
-  // let name;
 
   const about = () => {
     return (
@@ -84,55 +68,9 @@ const TransactionHistory = ({ route }) => {
 
   return (
     <View style={styles.container}>
-      {/* <Text
-        style={{
-          fontWeight: "bold",
-          marginBottom: 5,
-          marginTop: 5,
-          textAlign: "center",
-          fontSize: 20,
-          fontFamily: "custom-font",
-        }}
-      >
-        {` Welcome ${auth.currentUser.displayName}`}
-      </Text> */}
-
       <>
-        {/* <Icon3
-          name="logout"
-          size={30}
-          style={{ position: "absolute", top: 2, right: 5, marginRight: 5 }}
-          onPress={handleSignOut}
-        /> */}
+
       </>
-
-      {/* {hamberger && (
-        <View style={{ position: "relative" }}>
-          <Icon2
-            style={{
-              position: "absolute",
-              top: 2,
-              right: 110,
-              zIndex: 15,
-              borderWidth: 0.5,
-              borderColor: "black",
-            }}
-            name="close"
-            size={20}
-            color="black"
-            onPress={() => setHamberger(false)}
-          />
-        </View>
-      )} */}
-
-      {/* <Tab.Navigator>
-        <Tab.Screen name="About" component={About} />
-        <Tab.Screen name="Donation" component={DonateMoney} />
-      </Tab.Navigator> */}
-      {/* {hamberger && <Cards />} */}
-      {/* <TouchableOpacity onPress={handleSignOut} style={styles.button}>
-        <Text style={styles.buttonText}>Sign out</Text>
-      </TouchableOpacity> */}
       {!hamberger && (
         <View style={{ marginTop: 10, marginLeft: 5 }}>
           <Text
@@ -146,31 +84,6 @@ const TransactionHistory = ({ route }) => {
             Transaction History
           </Text>
           <View>
-            {/* <View
-              style={{
-                padding: 20,
-                width: "80%",
-                borderRadius: 25,
-                backgroundColor: "#FFA500",
-                shadowColor: "#000000",
-                shadowOffset: {
-                  width: 0,
-                  height: 6,
-                },
-                shadowOpacity: 0.53,
-                shadowRadius: 13.97,
-
-                elevation: 21,
-              }}
-            >
-              <Text style={{ color: "white" }}>Date</Text>
-              <Text
-                style={{ fontSize: 35, color: "white", textAlign: "right" }}
-              >
-                600
-              </Text>
-              <Text style={{ fontSize: 20, color: "white" }}>To</Text>
-            </View> */}
             <View
               style={{
                 borderBottomColor: "gray",
@@ -192,11 +105,6 @@ const TransactionHistory = ({ route }) => {
                 </Text>
               </>
               <>
-                {/* <Text
-                  style={{ textAlign: "right", fontSize: 16, marginRight: 12 }}
-                >
-                  money
-                </Text> */}
               </>
             </View>
             <View
@@ -364,14 +272,4 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     fontSize: 16,
   },
-  // card: {
-  //   backgroundColor: "#FFFFFF",
-  //   width: "60%",
-  //   padding: 25,
-  //   borderRadius: 10,
-  //   alignItems: "center",
-  //   // position: "absolute",
-  //   bottom: 5,
-  //   marginTop: 40,
-  // },
 });

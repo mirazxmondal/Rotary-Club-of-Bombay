@@ -11,7 +11,6 @@ import React, { useState } from "react";
 import Icon from "react-native-vector-icons/AntDesign";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { useNavigation } from "@react-navigation/native";
-// import { SelectList } from "react-native-dropdown-select-list";
 
 const Donate = () => {
   const navigation = useNavigation();
@@ -81,21 +80,6 @@ const Donate = () => {
         />
       </View>
       <View style={{ alignItems: "center", marginTop: 20 }}>
-        {/* <Text style={{ color: "black" }}>Donation Catagories 👇</Text>
-          <SelectList
-            data={data}
-            setSelected={(val) => setSelected(val)}
-            boxStyles={{
-              borderColor: "#ffdf00",
-              borderWidth: 2,
-              width: "40%",
-              padding: 5,
-              borderRadius: 15,
-            }}
-            placeholder={"Select Scheme"}
-            save="value"
-            onSelect={() => console.log(selected)}
-          /> */}
         {/* {selected && <Text>Pay As You Wish! 👇</Text>} */}
         <View
           style={{
