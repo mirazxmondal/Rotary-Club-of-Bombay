@@ -14,7 +14,7 @@
     "@react-navigation/drawer": "^6.6.2",
     "@react-navigation/native": "^6.1.6",
     "@react-navigation/stack": "^6.3.16",
-    "expo": "~48.0.6",
+    "expo": "^48.0.9",
     "expo-av": "~13.2.1",
     "expo-device": "~5.2.1",
     "expo-file-system": "^15.1.1",
