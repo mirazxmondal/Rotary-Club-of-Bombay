@@ -21,6 +21,7 @@ const Register = () => {
   const [email, setEmail] = useState(null);
   const [phone, setPhone] = useState(null);
   const [password, setPassword] = useState(null);
+  const [history, setHistory] = useState({});
 
   const saveData = async () => {
     // Add a new document with a generated id.
@@ -30,6 +31,7 @@ const Register = () => {
       Email: email,
       Phone: phone,
       Password: password,
+      History: history,
     });
     console.log("Document written with ID: ", docRef.id);
   };

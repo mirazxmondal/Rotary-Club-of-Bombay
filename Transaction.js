@@ -24,6 +24,7 @@ import { auth, db } from "./firebase/firebase";
 const TransactionHistory = ({ route }) => {
   const navigation = useNavigation();
   const [hamberger, setHamberger] = useState(false);
+  const [history, setHistory] = useState({});
   const [name, setName] = useState({
     name: auth.currentUser.displayName,
     email: auth.currentUser.email,
@@ -44,18 +45,25 @@ const TransactionHistory = ({ route }) => {
           data: doc.data(),
         });
       });
-      console.log(auth.currentUser);
+      // console.log(listings);
+      const data = listings[0].data;
+      setHistory({ ...data.History });
+      // console.log(history);
+      try {
+        Object.values(history).forEach((item) => {
+          console.log(item.amount);
+          // console.log(item.date);
+          const timestamp = item.date;
+          const date = new Date(timestamp);
+          console.log(date);
+        });
+      } catch (error) {
+        console.log(error);
+      }
+      // console.log(auth.currentUser);
     }
     fetchUserListings();
-  }, []);
-
-  const about = () => {
-    return (
-      <View>
-        <Text>Home</Text>
-      </View>
-    );
-  };
+  }, [auth.currentUser.uid]);
 
   const handleSignOut = () => {
     auth
@@ -68,9 +76,7 @@ const TransactionHistory = ({ route }) => {
 
   return (
     <View style={styles.container}>
-      <>
-
-      </>
+      <></>
       {!hamberger && (
         <View style={{ marginTop: 10, marginLeft: 5 }}>
           <Text
@@ -98,144 +104,47 @@ const TransactionHistory = ({ route }) => {
                     fontWeight: "600",
                     fontSize: 18,
                     paddingBottom: 8,
+                    borderBottomColor: "gray",
+                    borderBottomWidth: 0.5,
                   }}
                 >
                   {" "}
-                  2022
+                  2023
                 </Text>
               </>
               <>
+                {Object.values(history).map((item, index) => {
+                  return (
+                    <View
+                      key={index}
+                      style={{
+                        borderBottomColor: "gray",
+                        borderBottomWidth: 0.5,
+                        paddingHorizontal: 10,
+                        justifyContent: "center",
+                      }}
+                    >
+                      <View>
+                        <Text
+                          style={{
+                            textAlign: "left",
+                            fontSize: 18,
+                            fontWeight: "600",
+                            color: "green",
+                          }}
+                        >
+                          ₨ {item.amount}
+                        </Text>
+                      </View>
+                      <View>
+                        <Text style={{ textAlign: "right", fontSize: 15 }}>
+                          {new Date(item.date).toDateString()}
+                        </Text>
+                      </View>
+                    </View>
+                  );
+                })}
               </>
-            </View>
-            <View
-              style={{
-                borderBottomColor: "gray",
-                borderBottomWidth: 0.5,
-                paddingHorizontal: 10,
-                justifyContent: "center",
-              }}
-            >
-              <View>
-                <Text
-                  style={{
-                    textAlign: "left",
-                    fontSize: 18,
-                    fontWeight: "600",
-                    color: "green",
-                  }}
-                >
-                  ₨ 600.00
-                </Text>
-              </View>
-              <View>
-                <Text style={{ textAlign: "right", fontSize: 15 }}>
-                  Mar 10, 2022
-                </Text>
-              </View>
-            </View>
-            <View
-              style={{
-                borderBottomColor: "gray",
-                borderBottomWidth: 0.5,
-                paddingHorizontal: 10,
-                justifyContent: "center",
-              }}
-            >
-              <View>
-                <Text
-                  style={{
-                    textAlign: "left",
-                    fontSize: 18,
-                    fontWeight: "600",
-                    color: "green",
-                  }}
-                >
-                  ₨ 400.00
-                </Text>
-              </View>
-              <View>
-                <Text style={{ textAlign: "right", fontSize: 15 }}>
-                  Apr 12, 2022
-                </Text>
-              </View>
-            </View>
-            <View
-              style={{
-                borderBottomColor: "gray",
-                borderBottomWidth: 0.5,
-                paddingHorizontal: 10,
-                justifyContent: "center",
-              }}
-            >
-              <View>
-                <Text
-                  style={{
-                    textAlign: "left",
-                    fontSize: 18,
-                    fontWeight: "600",
-                    color: "green",
-                  }}
-                >
-                  ₨ 300.00
-                </Text>
-              </View>
-              <View>
-                <Text style={{ textAlign: "right", fontSize: 15 }}>
-                  May 03, 2022
-                </Text>
-              </View>
-            </View>
-            <View
-              style={{
-                borderBottomColor: "gray",
-                borderBottomWidth: 0.5,
-                paddingHorizontal: 10,
-                justifyContent: "center",
-              }}
-            >
-              <View>
-                <Text
-                  style={{
-                    textAlign: "left",
-                    fontSize: 18,
-                    fontWeight: "600",
-                    color: "green",
-                  }}
-                >
-                  ₨ 1600.00
-                </Text>
-              </View>
-              <View>
-                <Text style={{ textAlign: "right", fontSize: 15 }}>
-                  Jun 08 , 2022
-                </Text>
-              </View>
-            </View>
-            <View
-              style={{
-                borderBottomColor: "gray",
-                borderBottomWidth: 0.5,
-                paddingHorizontal: 10,
-                justifyContent: "center",
-              }}
-            >
-              <View>
-                <Text
-                  style={{
-                    textAlign: "left",
-                    fontSize: 18,
-                    fontWeight: "600",
-                    color: "green",
-                  }}
-                >
-                  ₨ 900.00
-                </Text>
-              </View>
-              <View>
-                <Text style={{ textAlign: "right", fontSize: 15 }}>
-                  Jul 15, 2022
-                </Text>
-              </View>
             </View>
           </View>
         </View>

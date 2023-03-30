@@ -7,7 +7,20 @@ import {
   ImageBackground,
   TextInput,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import {
+  collection,
+  doc,
+  set,
+  arrayUnion,
+  FieldValue,
+  getDoc,
+  getDocs,
+  query,
+  updateDoc,
+  where,
+} from "firebase/firestore";
+import { auth, db } from "./firebase/firebase";
 import Icon from "react-native-vector-icons/AntDesign";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { useNavigation } from "@react-navigation/native";
@@ -33,7 +46,57 @@ const Donate = () => {
   const [state13, setState13] = useState("cards");
   const [state14, setState14] = useState("cards");
 
-  const handlePayment = () => {
+  const [history, setHistory] = useState({});
+  useEffect(() => {
+    async function fetchUserListings() {
+      const listingRef = collection(db, "users");
+      const q = query(
+        listingRef,
+        where("Rotary_Id", "==", auth.currentUser.uid)
+      );
+      const quarySnap = await getDocs(q);
+      let listings = [];
+      quarySnap.forEach((doc) => {
+        return listings.push({
+          id: doc.id,
+          data: doc.data(),
+        });
+      });
+      // console.log(listings);
+      const data = listings[0].data;
+      setHistory({ ...data.History });
+      console.log(history);
+      // console.log(auth.currentUser);
+    }
+    fetchUserListings();
+  }, [auth.currentUser.uid]);
+
+  const handlePayment = async () => {
+    const listingRef = collection(db, "users");
+    const q = query(listingRef, where("Rotary_Id", "==", auth.currentUser.uid));
+    const querySnap = await getDocs(q);
+    const docRef = querySnap.docs[0].ref;
+    // setNewHistory({ ...history, [new Date().getTime()]: amount });
+    // console.log(newHistory);
+
+    try {
+      await updateDoc(docRef, {
+        History: {
+          ...history,
+          [new Date().getTime()]: {
+            amount: amount,
+            date: new Date().getTime(),
+          },
+        },
+      });
+      console.log("Payment successful.");
+    } catch (error) {
+      console.log(error.message);
+      if (error.code === "not-found") {
+        console.error("User document not found.");
+      }
+    }
+
     if (amount != null) {
       setTimeout(() => {
         navigation.replace("ThankYouPage");
@@ -121,10 +184,16 @@ const Donate = () => {
                   justifyContent: "center",
                   alignItems: "center",
                 }}
-                onPress={() => setState("cardsActive")}
+                onPress={() => {
+                  if (state === "cards") {
+                    setState("cardsActive");
+                  } else {
+                    setState("cards");
+                  }
+                }}
               >
                 <Text style={{ fontWeight: "600", color: "white" }}>
-                  Select
+                  {state === "cards" ? "Select" : "unselect"}
                 </Text>
               </TouchableOpacity>
             </ImageBackground>
@@ -160,10 +229,16 @@ const Donate = () => {
                   backgroundColor: "#FFA500",
                   borderRadius: 8,
                 }}
-                onPress={() => setState1("cardsActive")}
+                onPress={() => {
+                  if (state1 === "cards") {
+                    setState1("cardsActive");
+                  } else {
+                    setState1("cards");
+                  }
+                }}
               >
                 <Text style={{ fontWeight: "600", color: "white" }}>
-                  Select
+                  {state1 === "cards" ? "Select" : "unselect"}
                 </Text>
               </TouchableOpacity>
             </ImageBackground>
@@ -199,10 +274,16 @@ const Donate = () => {
                   backgroundColor: "#FFA500",
                   borderRadius: 8,
                 }}
-                onPress={() => setState2("cardsActive")}
+                onPress={() => {
+                  if (state2 === "cards") {
+                    setState2("cardsActive");
+                  } else {
+                    setState2("cards");
+                  }
+                }}
               >
                 <Text style={{ fontWeight: "600", color: "white" }}>
-                  Select
+                  {state2 === "cards" ? "Select" : "unselect"}
                 </Text>
               </TouchableOpacity>
             </ImageBackground>
@@ -246,10 +327,16 @@ const Donate = () => {
                   backgroundColor: "#FFA500",
                   borderRadius: 8,
                 }}
-                onPress={() => setState3("cardsActive")}
+                onPress={() => {
+                  if (state3 === "cards") {
+                    setState3("cardsActive");
+                  } else {
+                    setState3("cards");
+                  }
+                }}
               >
                 <Text style={{ fontWeight: "600", color: "white" }}>
-                  Select
+                  {state3 === "cards" ? "Select" : "unselect"}
                 </Text>
               </TouchableOpacity>
             </ImageBackground>
@@ -285,10 +372,16 @@ const Donate = () => {
                   backgroundColor: "#FFA500",
                   borderRadius: 8,
                 }}
-                onPress={() => setState4("cardsActive")}
+                onPress={() => {
+                  if (state4 === "cards") {
+                    setState4("cardsActive");
+                  } else {
+                    setState4("cards");
+                  }
+                }}
               >
                 <Text style={{ fontWeight: "600", color: "white" }}>
-                  Select
+                  {state4 === "cards" ? "Select" : "unselect"}
                 </Text>
               </TouchableOpacity>
             </ImageBackground>
@@ -324,10 +417,16 @@ const Donate = () => {
                   backgroundColor: "#FFA500",
                   borderRadius: 8,
                 }}
-                onPress={() => setState5("cardsActive")}
+                onPress={() => {
+                  if (state5 === "cards") {
+                    setState5("cardsActive");
+                  } else {
+                    setState5("cards");
+                  }
+                }}
               >
                 <Text style={{ fontWeight: "600", color: "white" }}>
-                  Select
+                  {state5 === "cards" ? "Select" : "unselect"}
                 </Text>
               </TouchableOpacity>
             </ImageBackground>
@@ -371,10 +470,16 @@ const Donate = () => {
                   backgroundColor: "#FFA500",
                   borderRadius: 8,
                 }}
-                onPress={() => setState6("cardsActive")}
+                onPress={() => {
+                  if (state6 === "cards") {
+                    setState6("cardsActive");
+                  } else {
+                    setState6("cards");
+                  }
+                }}
               >
                 <Text style={{ fontWeight: "600", color: "white" }}>
-                  Select
+                  {state6 === "cards" ? "Select" : "unselect"}
                 </Text>
               </TouchableOpacity>
             </ImageBackground>
@@ -410,10 +515,16 @@ const Donate = () => {
                   backgroundColor: "#FFA500",
                   borderRadius: 8,
                 }}
-                onPress={() => setState7("cardsActive")}
+                onPress={() => {
+                  if (state7 === "cards") {
+                    setState7("cardsActive");
+                  } else {
+                    setState7("cards");
+                  }
+                }}
               >
                 <Text style={{ fontWeight: "600", color: "white" }}>
-                  Select
+                  {state7 === "cards" ? "Select" : "unselect"}
                 </Text>
               </TouchableOpacity>
             </ImageBackground>
@@ -449,10 +560,16 @@ const Donate = () => {
                   backgroundColor: "#FFA500",
                   borderRadius: 8,
                 }}
-                onPress={() => setState8("cardsActive")}
+                onPress={() => {
+                  if (state8 === "cards") {
+                    setState8("cardsActive");
+                  } else {
+                    setState8("cards");
+                  }
+                }}
               >
                 <Text style={{ fontWeight: "600", color: "white" }}>
-                  Select
+                  {state8 === "cards" ? "Select" : "unselect"}
                 </Text>
               </TouchableOpacity>
             </ImageBackground>
@@ -496,10 +613,16 @@ const Donate = () => {
                   backgroundColor: "#FFA500",
                   borderRadius: 8,
                 }}
-                onPress={() => setState9("cardsActive")}
+                onPress={() => {
+                  if (state9 === "cards") {
+                    setState9("cardsActive");
+                  } else {
+                    setState9("cards");
+                  }
+                }}
               >
                 <Text style={{ fontWeight: "600", color: "white" }}>
-                  Select
+                  {state9 === "cards" ? "Select" : "unselect"}
                 </Text>
               </TouchableOpacity>
             </ImageBackground>
@@ -535,10 +658,16 @@ const Donate = () => {
                   backgroundColor: "#FFA500",
                   borderRadius: 8,
                 }}
-                onPress={() => setState10("cardsActive")}
+                onPress={() => {
+                  if (state10 === "cards") {
+                    setState10("cardsActive");
+                  } else {
+                    setState10("cards");
+                  }
+                }}
               >
                 <Text style={{ fontWeight: "600", color: "white" }}>
-                  Select
+                  {state10 === "cards" ? "Select" : "unselect"}
                 </Text>
               </TouchableOpacity>
             </ImageBackground>
@@ -574,10 +703,16 @@ const Donate = () => {
                   backgroundColor: "#FFA500",
                   borderRadius: 8,
                 }}
-                onPress={() => setState11("cardsActive")}
+                onPress={() => {
+                  if (state11 === "cards") {
+                    setState11("cardsActive");
+                  } else {
+                    setState11("cards");
+                  }
+                }}
               >
                 <Text style={{ fontWeight: "600", color: "white" }}>
-                  Select
+                  {state11 === "cards" ? "Select" : "unselect"}
                 </Text>
               </TouchableOpacity>
             </ImageBackground>
@@ -621,10 +756,16 @@ const Donate = () => {
                   backgroundColor: "#FFA500",
                   borderRadius: 8,
                 }}
-                onPress={() => setState12("cardsActive")}
+                onPress={() => {
+                  if (state12 === "cards") {
+                    setState12("cardsActive");
+                  } else {
+                    setState12("cards");
+                  }
+                }}
               >
                 <Text style={{ fontWeight: "600", color: "white" }}>
-                  Select
+                  {state12 === "cards" ? "Select" : "unselect"}
                 </Text>
               </TouchableOpacity>
             </ImageBackground>
@@ -660,10 +801,16 @@ const Donate = () => {
                   backgroundColor: "#FFA500",
                   borderRadius: 8,
                 }}
-                onPress={() => setState13("cardsActive")}
+                onPress={() => {
+                  if (state13 === "cards") {
+                    setState13("cardsActive");
+                  } else {
+                    setState13("cards");
+                  }
+                }}
               >
                 <Text style={{ fontWeight: "600", color: "white" }}>
-                  Select
+                  {state13 === "cards" ? "Select" : "unselect"}
                 </Text>
               </TouchableOpacity>
             </ImageBackground>
@@ -699,10 +846,16 @@ const Donate = () => {
                   backgroundColor: "#FFA500",
                   borderRadius: 8,
                 }}
-                onPress={() => setState14("cardsActive")}
+                onPress={() => {
+                  if (state14 === "cards") {
+                    setState14("cardsActive");
+                  } else {
+                    setState14("cards");
+                  }
+                }}
               >
                 <Text style={{ fontWeight: "600", color: "white" }}>
-                  Select
+                  {state14 === "cards" ? "Select" : "unselect"}
                 </Text>
               </TouchableOpacity>
             </ImageBackground>
@@ -719,13 +872,14 @@ const Donate = () => {
             borderRadius: 15,
           }}
           keyboardType="numeric"
+          value={amount}
           onChangeText={(amount) => setAmount(amount)}
           placeholder="Enter a Amount"
         ></TextInput>
       </View>
       <View style={{ alignItems: "center", justifyContent: "center" }}>
         <TouchableOpacity style={styles.button} onPress={handlePayment}>
-          <Text style={styles.buttonText}>Paid</Text>
+          <Text style={styles.buttonText}>Pay</Text>
         </TouchableOpacity>
       </View>
     </KeyboardAwareScrollView>
