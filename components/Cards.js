@@ -11,6 +11,7 @@ import React from "react";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { auth } from "../../firebase/firebase";
 
+
 const Cards = ({ value }) => {
   const names = [
     {
@@ -55,15 +56,6 @@ const Cards = ({ value }) => {
 
   const navigation = useNavigation();
 
-  // const handleSignOut = () => {
-  //   auth
-  //     .signOut()
-  //     .then(() => {
-  //       navigation.replace("Login");
-  //     })
-  //     .catch((error) => alert(error.message));
-  // };
-
   const onPress = (index) => {
     if (index == 1) {
       navigation.replace("Payment");
@@ -87,17 +79,8 @@ const Cards = ({ value }) => {
   };
 
   return (
-    // <View style={styles.shadowProp}>
-    //   <TouchableOpacity
-    //     // onPress={handleSignOut}
-    //     style={styles.card}
-    //   >
-    //     <Text style={styles.cardText}>{value}</Text>
-    //   </TouchableOpacity>
-    // </View>
 
     <FlatList
-      //   contentContainerStyle={{ alignItems: "center", justifyContent: "center" }}
       keyExtractor={(key) => {
         return key.index;
       }}

@@ -4,6 +4,7 @@ import { Button, StyleSheet, Text, View } from "react-native";
 import DrawerNavigator from "./Drawer/DrawerNavigator";
 import { auth } from "./firebase/firebase";
 
+
 export default function Home() {
   const navigation = useNavigation();
   return (

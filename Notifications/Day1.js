@@ -50,23 +50,9 @@ export default function Day1() {
   return (
     <View
       style={{
-        // flex: 1,
-        // alignItems: "center",
-        // justifyContent: "space-around",
         margin: 10,
       }}
     >
-      {/* <Text>Your expo push token: {expoPushToken}</Text>
-      <View style={{ alignItems: "center", justifyContent: "center" }}>
-        <Text>
-          Title: {notification && notification.request.content.title}{" "}
-        </Text>
-        <Text>Body: {notification && notification.request.content.body}</Text>
-        <Text>
-          Data:{" "}
-          {notification && JSON.stringify(notification.request.content.data)}
-        </Text>
-      </View> */}
       <TouchableOpacity
         style={{
           backgroundColor: "#3ba0fc",

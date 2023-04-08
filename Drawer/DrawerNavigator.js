@@ -15,11 +15,11 @@ import Donate from "../Donate";
 import HelpDesk from "../HelpDesk";
 import About from "../About";
 import TransactionHistory from "../Transaction";
-// import { NavigationContainer } from "@react-navigation/native";
 import Icon3 from "react-native-vector-icons/MaterialIcons";
 import { auth } from "../firebase/firebase";
 import { useNavigation } from "@react-navigation/native";
 import FirstScreen from "../FirstScreen";
+
 
 const Drawer = createDrawerNavigator();
 
@@ -42,7 +42,6 @@ export default function DrawerNavigator() {
   );
   return (
     <Drawer.Navigator>
-      {/* <Drawer.Screen name="Home" component={Home} /> */}
       <Drawer.Screen
         name={`Home `}
         options={{

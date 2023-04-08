@@ -18,26 +18,10 @@ import firestore from "@react-native-firebase/firestore";
 import { useEffect, useState } from "react";
 import PushNotification from "./PushNotification";
 
+
 export default function AdminGenerate() {
   const navigation = useNavigation();
   const [formData, setFormData] = useState({});
-
-  // useEffect(() => {
-  //   const getData = async () => {
-  //    const docRef = collection(db, 'users');
-  //    const q = query(docRef, where("Name", "!=", null));
-  //    const querySnap = await getDocs(q);
-  //    let data = [];
-  //    querySnap.forEach((doc) => {
-  //     data.push({
-  //       id:doc.id,
-  //       data:doc.data()
-  //     });
-  //     setFormData(data);
-  //     console.log(formData);
-  //    })
-  //   getData();
-  // },[formData]);
 
   const handleSignOut = () => {
     auth

@@ -14,7 +14,7 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useNavigation } from "@react-navigation/native";
 import { auth, db } from "./firebase/firebase";
 import { addDoc, collection } from "firebase/firestore";
-// import { async } from "@firebase/util";
+
 
 const Register = () => {
   const [name, setName] = useState(null);
@@ -53,8 +53,6 @@ const Register = () => {
         // Signed in
         alert("Registered Successfully");
         saveData();
-        // navigator.replace("DrawerNavigator");
-        // ...
         updateProfile(auth.currentUser, {
           displayName: name,
         });
@@ -185,7 +183,6 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 40,
     alignItems: "center",
-    // marginBottom: 20,
   },
   buttonOutline1: {
     backgroundColor: "#FFA500",

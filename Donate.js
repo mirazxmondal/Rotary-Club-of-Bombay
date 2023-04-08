@@ -25,6 +25,7 @@ import Icon from "react-native-vector-icons/AntDesign";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { useNavigation } from "@react-navigation/native";
 
+
 const Donate = () => {
   const navigation = useNavigation();
   const [selected, setSelected] = useState("");
@@ -921,7 +922,6 @@ const styles = StyleSheet.create({
     borderColor: "blue",
     borderWidth: 2,
     marginBottom: 25,
-    // padding: 20,
     width: "30%",
     borderRadius: 10,
     alignItems: "center",

@@ -158,17 +158,12 @@ export default TransactionHistory;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // justifyContent: "center",
-    // marginTop: 50,
     marginBottom: 10,
-    // alignItems: "center",
-    // marginLeft: 10,
     fontFamily: "custom-font",
   },
   button: {
     backgroundColor: "#0782F9",
     width: "60%",
-    // height: "100",
     padding: 15,
     borderRadius: 10,
     alignItems: "center",

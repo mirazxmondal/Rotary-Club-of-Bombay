@@ -20,6 +20,7 @@ import { auth } from "./firebase/firebase";
 import firebase from "firebase/app";
 import "firebase/auth";
 
+
 const LoginScreen = () => {
   const navigator = useNavigation();
   const [email, setEmail] = useState(null);
@@ -43,10 +44,6 @@ const LoginScreen = () => {
         alert("Login Successful");
         console.log(userCredential);
         navigator.navigate("DrawerNavigator");
-        // ...
-        // updateProfile(auth.currentUser, {
-        //   displayName: username,
-        // });
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -65,12 +62,6 @@ const LoginScreen = () => {
           onChangeText={(text) => setEmail(text)}
           style={styles.input}
         />
-        {/* <TextInput
-          placeholder="Username"
-          value={username}
-          onChangeText={(text) => setUsername(text)}
-          style={styles.input}
-        /> */}
         <TextInput
           placeholder="Password"
           value={password}
@@ -110,13 +101,6 @@ const LoginScreen = () => {
             <Text style={styles.buttonText}>Login As Admin</Text>
           </TouchableOpacity>
         </View>
-
-        {/* <TouchableOpacity
-          onPress={() => navigator.replace("AdminLogin")}
-          style={[styles.button1, styles.buttonOutline1]}
-        >
-          <Text style={styles.buttonOutlineText1}>Login As Admin</Text>
-        </TouchableOpacity> */}
       </View>
       <Text style={{ color: "white", bottom: 160, position: "absolute" }}>
         Copyright ©Bombay Rotary Club

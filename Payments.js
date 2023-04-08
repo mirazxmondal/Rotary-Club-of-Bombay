@@ -22,7 +22,6 @@ import {
   updateDoc,
   where,
 } from "firebase/firestore";
-// import { FieldValue } from "firebase-admin/firestore";
 
 import { auth, db } from "./firebase/firebase";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";

@@ -13,8 +13,8 @@ import AdminLogin from "./AdminLogin";
 import AdminGenerate from "./Admin";
 import Notifications from "./Notifications";
 
-const Stack = createStackNavigator();
 
+const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
@@ -27,7 +27,6 @@ export default function App() {
           }}
           component={GetstartedPage}
         />
-        {/* <Stack.Screen name="Notifications" component={Notifications} /> */}
         <Stack.Screen name="Profile" component={Profile} />
         <Stack.Screen
           name="DrawerNavigator"
@@ -54,11 +53,6 @@ export default function App() {
           options={{ headerShown: false }}
           component={Register}
         />
-        {/* <Stack.Screen
-          name="Transaction"
-          options={{ headerShown: false }}
-          component={TransactionHistory}
-        /> */}
         <Stack.Screen
           name="ThankYouPage"
           options={{ headerShown: false }}

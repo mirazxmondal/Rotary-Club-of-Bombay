@@ -10,9 +10,9 @@ import {
 import Icon from "react-native-vector-icons/AntDesign";
 import Facebook from "react-native-vector-icons/FontAwesome5";
 import Twitter from "react-native-vector-icons/Entypo";
-// import Instagram from "react-native-vector-icons/Entypo";
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
+
 
 const HelpDesk = () => {
   const navigation = useNavigation();

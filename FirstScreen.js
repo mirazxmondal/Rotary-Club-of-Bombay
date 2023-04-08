@@ -56,7 +56,6 @@ const FirstScreen = () => {
           source={require("./assets/rotary-club-logo-1.jpeg")}
         />
       </View>
-      {/* <Text style={{ textAlign: "center" }}>Logo</Text> */}
       <View
         style={{ paddingHorizontal: 40, paddingTop: 10, alignItems: "center" }}
       >
@@ -87,25 +86,6 @@ const FirstScreen = () => {
           shouldPlay={true}
         />
       </View>
-      {/* <View
-        style={{
-          justifyContent: "center",
-          alignItems: "center",
-          position: "absolute",
-          bottom: 10,
-          right: 40,
-        }}
-      > */}
-      {/* <TouchableOpacity style={[styles.button, styles.buttonOutline]}> */}
-      {/* <Text style={{ color: "blue" }}>Button</Text> */}
-      {/* <Icon
-          name="rightcircle"
-          style={{ color: "#FFA500", marginBottom: 20 }}
-          size={60}
-          onPress={() => navigation.replace("getStarted")}
-        /> */}
-      {/* </TouchableOpacity> */}
-      {/* </View> */}
     </ScrollView>
   );
 };

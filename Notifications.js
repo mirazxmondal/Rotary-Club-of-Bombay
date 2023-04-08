@@ -71,23 +71,13 @@ const Notifications = () => {
         Daily Notifications
       </Text>
       <View style={{ flex: 1, flexDirection: "row", marginTop: 60 }}>
-        <View
-          style={
-            {
-              // flex: 1,
-              // flexDirection: "row",
-            }
-          }
-        >
-          {/* <PushNotification /> */}
+        <View>
           <Day1 />
           <Day2 />
           <Day3 />
         </View>
         <View
           style={{
-            // flex: 1,
-            // flexDirection: "row",
             marginTop: 0,
             marginBottom: 0,
           }}
@@ -98,8 +88,6 @@ const Notifications = () => {
         </View>
         <View
           style={{
-            // flex: 1,
-            // flexDirection: "row",
             marginTop: 0,
             marginBottom: 0,
           }}
@@ -110,8 +98,6 @@ const Notifications = () => {
         </View>
         <View
           style={{
-            // flex: 1,
-            // flexDirection: "row",
             marginTop: 0,
             marginBottom: 0,
           }}
@@ -122,21 +108,11 @@ const Notifications = () => {
         </View>
       </View>
 
-      {/* <TouchableOpacity
-        style={{ backgroundColor: "#3ba0fc", padding: 15, borderRadius: 12 }}
-        onPress={() =>
-          Linking.openURL("https://rotary-clubof-bombay-admin.vercel.app/")
-        }
-      >
-        <Text style={{ color: "white" }}>Generate Excel</Text>
-      </TouchableOpacity> */}
-
       <View
         style={{
           backgroundColor: "#FFA500",
           padding: 20,
           borderRadius: 50,
-          // marginTop: 80,
           position: "absolute",
           bottom: 50,
           width: 200,

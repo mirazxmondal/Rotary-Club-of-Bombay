@@ -3,6 +3,7 @@ import React from "react";
 import Icon from "react-native-vector-icons/AntDesign";
 import { useNavigation } from "@react-navigation/native";
 
+
 const Events = () => {
   const navigation = useNavigation();
   return (

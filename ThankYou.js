@@ -16,7 +16,6 @@ const ThankYouPage = () => {
     >
 
       <Icon
-        // color={"#0047AB"}
         color={"#1fd655"}
         size={210}
         name="checkcircle"

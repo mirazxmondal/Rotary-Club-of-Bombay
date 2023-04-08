@@ -15,6 +15,7 @@ import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase/firebase";
 import { Icon } from "react-native-vector-icons/Entypo";
 
+
 const AdminLogin = () => {
   const navigator = useNavigation();
   const [email, setEmail] = useState(null);
@@ -144,7 +145,6 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 40,
     alignItems: "center",
-    // marginBottom: 20,
   },
   buttonOutline1: {
     backgroundColor: "#FFA500",
