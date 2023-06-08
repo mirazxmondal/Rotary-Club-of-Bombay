@@ -1,4 +1,12 @@
 # Rotary Club of Bombay
-<p style="text-align:center; font-size: 20px">Overview of the App</p>
+
+## Introduction
+
+React Native Application for Rotary Club of Bombay Educational project!
+
+## Overview of the App
 
 ![Landing Page](./assets/DFD.png "DFD")
+
+## Tech Stack
+
