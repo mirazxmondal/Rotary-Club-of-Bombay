@@ -10,3 +10,6 @@ React Native Application for Rotary Club of Bombay Educational project!
 
 ## Tech Stack
 
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
